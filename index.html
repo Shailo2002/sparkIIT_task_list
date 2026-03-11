@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskFlow - Task List Management System</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-left">
+        <svg
+          class="logo-icon"
+          viewBox="0 0 24 24"
+          width="28"
+          height="28"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <rect x="3" y="3" width="7" height="9" rx="1"></rect>
+          <rect x="14" y="3" width="7" height="5" rx="1"></rect>
+          <rect x="14" y="12" width="7" height="9" rx="1"></rect>
+          <rect x="3" y="16" width="7" height="5" rx="1"></rect>
+        </svg>
+        <h1 class="logo">TaskFlow</h1>
+      </div>
+      <button class="btn btn-clear" id="clearAllBtn" title="Clear all data">
+        <svg
+          viewBox="0 0 24 24"
+          width="16"
+          height="16"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="3 6 5 6 21 6"></polyline>
+          <path
+            d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+          ></path>
+        </svg>
+        Clear All
+      </button>
+    </header>
+
+    <main class="board" id="board">
+      <!-- Columns rendered by JS -->
+      <div class="add-column" id="addColumnBtn">
+        <svg
+          viewBox="0 0 24 24"
+          width="24"
+          height="24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+        <span>Add Column</span>
+      </div>
+    </main>
+
+    <!-- Task Modal -->
+    <div class="modal-overlay" id="taskModal">
+      <div class="modal">
+        <div class="modal-header">
+          <h3 id="modalTitle">Add Task</h3>
+          <button class="modal-close" id="modalClose">&times;</button>
+        </div>
+        <div class="modal-body">
+          <label for="taskTitleInput">Title</label>
+          <input
+            type="text"
+            id="taskTitleInput"
+            placeholder="Enter task title..."
+            maxlength="100"
+          />
+          <label for="taskDescInput"
+            >Description <span class="optional">(optional)</span></label
+          >
+          <textarea
+            id="taskDescInput"
+            placeholder="Enter task description..."
+            rows="3"
+            maxlength="500"
+          ></textarea>
+          <label for="taskPriorityInput">Priority</label>
+          <select id="taskPriorityInput">
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" id="modalCancel">Cancel</button>
+          <button class="btn btn-primary" id="modalSave">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
